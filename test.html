@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        :root {
+            --color1:white;
+            --color2:black;
+       
+        }
+        body {
+            margin: 0; /*外边距*/
+            padding: 0; /*内边距*/
+            background: white;
+        }
+
+        .title {
+            margin: 10px 0 10px 0;
+            height: 100px;
+            line-height: 100px;
+            font-size: 62px;
+            text-align: center;
+            background-color: var(--color1);
+           
+        }
+
+        .button-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .button-wrap:nth-child(2) {
+            margin-top: 0;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 15px 30px;
+            padding: 0;
+            cursor: pointer;
+            box-sizing: border-box; /*盒模型大小规则*/
+            background: #cb4e4e;
+            color: #fff;
+            transition: none;
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            text-transform: uppercase;
+  
+        }
+        /* .button-wrap:nth-child(even) {
+            background-color: var(--color1);
+        }
+        .button-wrap:nth-child(Odd) {
+            background-color: var(--color2);
+        } */
+    
+        .button0 {
+            position: relative;
+            width: 200px; /*宽*/
+            height: 60px; /*高*/
+            text-align: center; /*字体水平居中*/
+            font-size: 25px; /*字体大小*/
+            line-height: 60px; /*行高*/
+            color: #fff;
+            text-transform: uppercase; /*字体大写*/
+            text-decoration: none; /*字体增加装饰：去除下划线*/
+            font-family: sans-serif; /*非衬线体*/
+            box-sizing: border-box; /*盒模型大小规则*/
+            background: linear-gradient(
+               90deg,#03a9f4, #f441a5, #ffeb3b, 
+            #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+            /* background: linear-gradient(
+               90deg,#03a9f4 0%, #f441a5 60%);  */
+            border-radius: 60px; /*边框圆角*/
+            background-size: 400%; /*背景大小*/
+            z-index: 1; /*层叠定位*/
+        }
+
+ 
+        @keyframes animate{
+            0%{
+                background-position: 0%; /*修改背景定位，实现渐变色炫光*/
+            }
+            50%{
+                background-position: 100%;
+            }
+            100%{
+                background-position: 0%;
+            }
+        }
+
+        .button0::before{ /*之前添加*/
+            content: ''; /*内容*/
+            position: absolute; /*绝对定位*/
+            top:-5px; /*当设置对立的2个定位属性时，元素的大小将由对立的大小决定*/
+            left: -5px;
+            right: -5px;
+            bottom: -5px; /*当设置对立的2个定位属性时，元素的大小将由对立的大小决定*/
+            z-index: -1; 
+            border: 1px solid red;
+            background: linear-gradient(
+                90deg,#03a9f4, #f441a5, #ffeb3b, #03a9f4, 
+            #f441a5, #ffeb3b, #03a9f4);
+            border-radius: 40px;
+            background-size: 400%;
+            filter: blur(20px); /*过渡：模糊*/
+            opacity: 0; /*透明度*/
+            transition: 1s; /*过渡时间*/
+        }
+
+        .button0:hover::before{
+            filter: blur(20px);
+            opacity: 1;
+            animation: animate 8s linear infinite; /*注意动画名称统一*/
+        }
+
+        .btn-1 {
+            background: #cb4e4e;
+            color: #fff;
+            box-shadow: 0 6px #ab3c3c;
+            transition: none;
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            text-transform: uppercase;
+            transition: none;
+            position: relative;
+        }
+
+     
+        .btn-1a:hover {
+            box-shadow: 0 4px #ab3c3c;
+            top: 2px;
+        }
+
+        .btn-1a:active {
+            box-shadow: 0 0 #ab3c3c;
+            top: 6px;
+        }
+
+        .btn-1b:hover {
+            box-shadow: 0 8px  #ab3c3c;
+            top: -2px;
+        }
+
+        .btn-1b:active {
+            box-shadow: 0 0 #ab3c3c;
+            top: 6px;
+        }
+
+
+        .btn-2 {
+            background-color: #17aa56;
+            position: relative;
+        }
+        .btn-2-tri {
+            position: relative;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #17aa56;
+            border: 5px solid #ad3b44;
+            border-color: white;
+        }
+        .btn-2a-tri:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            font-size: 26px;
+            line-height: 54px;
+            background:#ca646c;
+            opacity: 0;
+        }
+        .btn-2a-tri:hover:after {
+            background: #ea515e;
+            animation: scaleFade 0.5s forwards;
+        }
+
+        @keyframes scaleFade {
+            50% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+               transform: scale(3.5);
+            }
+        }
+
+        .btn-2b-tri:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            font-size: 26px;
+            line-height: 54px;
+            background:#ca646c;
+            opacity: 0;
+            transform: scale(3.5);
+        }
+        .btn-2b-tri:hover:after {
+            background: #ea515e;
+            animation: dropDown 1s forwards;
+        }
+
+        @keyframes dropDown {
+            to { 
+                opacity: 1;
+                -webkit-transform: scale(1);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="title"> button css 练习 </div>
+    
+    <div class="button-wrap">
+        <div class="button0">BUTTON0</div>
+    </div>
+
+    <div class="button-wrap ">
+        <div class="btn btn-1 btn-1a">
+            <div>233</div>
+        </div>
+        <div class="btn btn-1 btn-1b">no</div>
+    </div>
+
+    <div class="button-wrap ">
+        <div class="btn btn-2 btn-2a">
+            <div class="btn-2-tri btn-2a-tri"></div>
+        </div>
+        <div class="btn btn-2 btn-2b">
+            <div class="btn-2-tri btn-2b-tri"></div>
+        </div>
+    </div>
+ 
+</body>
+
+<script>
+
+</script>
+</html>
